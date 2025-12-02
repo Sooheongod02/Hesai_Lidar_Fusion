@@ -1,16 +1,18 @@
 <launch>
     <group ns="ot128">
-        <include file="$(find hesai_ros_driver)/launch/start.launch">
-            <arg name="lidar_type" value="Pandar128"/>
-            <arg name="params_file" value="$(find hesai_ros_driver)/config/config_ot128.yaml"/>
-        </include>
+        <node pkg="hesai_ros_driver" name="hesai_driver" type="hesai_ros_driver_node" output="screen">
+            <rosparam command="load" file="$(find hesai_ros_driver)/config/config_ot128.yaml"/>
+            <param name="lidar_type" type="string" value="Pandar128"/>
+            <param name="pcap_file" type="string" value=""/>
+        </node>
     </group>
 
     <group ns="qt128">
-        <include file="$(find hesai_ros_driver)/launch/start.launch">
-            <arg name="lidar_type" value="PandarQT"/>
-            <arg name="params_file" value="$(find hesai_ros_driver)/config/config_qt128.yaml"/>
-        </include>
+        <node pkg="hesai_ros_driver" name="hesai_driver" type="hesai_ros_driver_node" output="screen">
+            <rosparam command="load" file="$(find hesai_ros_driver)/config/config_qt128.yaml"/>
+            <param name="lidar_type" type="string" value="PandarQT"/>
+            <param name="pcap_file" type="string" value=""/>
+        </node>
     </group>
 
     <node pkg="tf2_ros" type="static_transform_publisher" name="tf_ot128" 
