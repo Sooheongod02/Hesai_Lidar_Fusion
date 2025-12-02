@@ -1,0 +1,21 @@
+lidar:
+  - driver:
+      lidar_type: "Pandar128"    # OT128
+      frame_id: "ot128_frame"
+      device_ip: 192.168.1.201   # OT128 IP
+      host_ip: 192.168.1.100     # PC IP
+      udp_port: 2368
+      ptc_port: 10110
+      pcap_path: ""
+      firetime_correction_file_path: ""
+      correction_file_path: ""
+      coordinate_correction_flag: false
+      multicast_ip: ""
+      fixed_frame: ""
+      target_frame: ""
+    ros:
+      ros_frame_id: "ot128_frame"
+      ros_recv_packet_topic: "/ot128/lidar_packets"
+      ros_send_point_cloud_topic: "/ot128/hesai/pandar" # 토픽 이름 지정
+      send_packet_ros: false
+      send_point_cloud_ros: true
