@@ -14,10 +14,4 @@
             <param name="params_file" type="string" value="$(find hesai_ros_driver)/config/config_qt128.yaml"/>
         </node>
     </group>
-
-    <node pkg="tf2_ros" type="static_transform_publisher" name="ot128_tf" args="0 0 1.8 0 0 0 base_link ot128_frame" />
-    
-    <node pkg="tf2_ros" type="static_transform_publisher" name="qt128_tf" args="0 0 0 0 0 0 base_link qt128_frame" />
-
-    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find hesai_ros_driver)/launch/dual_lidar.rviz" />
 </launch>
